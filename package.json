@@ -4,7 +4,7 @@
     "description": "",
     "scripts": {
         "push": "node dist.min.js",
-        "test": "prettier . -w && npm run build && git add . && git commit -m \"test\"",
+        "test": "prettier . -w && npm run build && git add . && git commit -m \"test\" && git push",
         "build": "rollup -c"
     },
     "keywords": [],
