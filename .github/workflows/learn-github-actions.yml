@@ -23,5 +23,6 @@ jobs:
           git checkout --orphan page
           git rm -rf .
           git commit --allow-empty  -m "empty"
+          git status
           git push origin page -u ${{ secrets.GITHUB_TOKEN }}
 
