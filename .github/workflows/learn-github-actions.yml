@@ -1,0 +1,20 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+
+on:
+  push:
+    branches: main
+
+jobs:
+
+  move-page-content-to-page-branch:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: test
+        run: |
+          git checkout --orphan page
+          git commit --allow-empty  -m "empty"
