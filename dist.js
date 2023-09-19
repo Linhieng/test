@@ -2700,7 +2700,10 @@ try {
     //     console.warn('No changes to commit.')
     // }
 } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed(
+        'Hi, can you see me? if you can, yes, the process has a error',
+        error.message,
+    );
 }
 
 module.exports = push;
