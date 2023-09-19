@@ -1,0 +1,5 @@
+name: 'Push'
+
+runs:
+  using: 'node18'
+  main: 'dist.min.js'
