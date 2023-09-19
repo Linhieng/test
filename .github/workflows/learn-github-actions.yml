@@ -24,5 +24,5 @@ jobs:
           git rm -rf .
           git commit --allow-empty  -m "empty"
           git status
-          git push origin page -u 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
+          git push origin page -u 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
 
