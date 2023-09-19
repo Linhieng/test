@@ -2692,13 +2692,13 @@ try {
     execSync('git add .');
 
     const gitStatus = execSync('git status -s').toString().trim();
-    core.info(gitStatus, !!gitStatus);
+
     if (gitStatus) {
         execSync('git commit -m "deploy"');
         execSync('git push origin page');
         core.info("-Hi, how are you doing~. I'm fine");
     } else {
-        core.warn('No changes to commit.');
+        core.warning('No changes to commit.');
     }
 } catch (error) {
     core.error(error);
