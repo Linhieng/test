@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 export default defineConfig({
     input: 'push.js',
     plugins: [commonjs(), resolve()],
-    output:[
+    output: [
         {
             file: 'dist.js',
             format: 'cjs',
@@ -16,5 +16,5 @@ export default defineConfig({
             format: 'cjs',
             plugins: [terser()],
         },
-    ]
+    ],
 })

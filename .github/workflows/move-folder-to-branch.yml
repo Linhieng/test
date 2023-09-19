@@ -2,56 +2,53 @@ name: move folder to branch
 run-name: ${{ github.actor }} test move folder to branch
 
 permissions:
-  contents: write
+    contents: write
 
 on:
-  push:
-    branches: main
+    push:
+        branches: main
 
 jobs:
+    move-page-content-to-page-branch:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+              # with:
+              #   ref: 'refs/heads/page'
 
-  move-page-content-to-page-branch:
-    runs-on: ubuntu-latest
-    steps:
+            - name: Set Git User Info
+              run: |
+                  git config user.email "linhieng@qq.com"
+                  git config user.name "linhieng"
 
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-        # with:
-        #   ref: 'refs/heads/page'
+            # - name: clear branch contnet
+            #   run: |
+            #     git rm -rf .
 
-      - name: Set Git User Info
-        run: |
-          git config user.email "linhieng@qq.com"
-          git config user.name "linhieng"
+            # - name: fetch content
+            #   run: |
+            #     git fetch origin main:tmp
+            #     git checkout tmp -- dist
+            #     mv dist/* .
 
-      # - name: clear branch contnet
-      #   run: |
-      #     git rm -rf .
+            # - name: add -> commit -> push
+            #   run: |
+            #     if [[ $(git status -s) ]]; then
+            #       git add .
+            #       git commit -m "deploy"
+            #       git push origin main
+            #     else
+            #       echo "No changes to push."
+            #     fi
+            # - name: Use Custom Action
+            #   uses: ./my-actions/push.yml
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - run: npm run push
 
-      # - name: fetch content
-      #   run: |
-      #     git fetch origin main:tmp
-      #     git checkout tmp -- dist
-      #     mv dist/* .
-
-      # - name: add -> commit -> push
-      #   run: |
-      #     if [[ $(git status -s) ]]; then
-      #       git add .
-      #       git commit -m "deploy"
-      #       git push origin main
-      #     else
-      #       echo "No changes to push."
-      #     fi
-      # - name: Use Custom Action
-      #   uses: ./my-actions/push.yml
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm run push
-
-      - name: debug
-        run: |
-          git remote -v
-          git branch
-
+            - name: debug
+              run: |
+                  git remote -v
+                  git branch
