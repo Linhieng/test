@@ -27,9 +27,8 @@ jobs:
       - name: move page content to branch page
         run: |
           git remote -v
+          git fetch origin main:tmp
           git branch
-          git remote set-url origin https://github.com/Linhieng/test.git
-          git fetch main:tmp
           git checkout tmp -- page
           mv page/* .
           git add .
