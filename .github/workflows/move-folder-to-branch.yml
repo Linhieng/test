@@ -1,5 +1,5 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: move folder to branch
+run-name: ${{ github.actor }} test move folder to branch
 
 permissions:
   contents: write
