@@ -24,13 +24,23 @@ jobs:
           git config user.email "linhieng@qq.com"
           git config user.name "linhieng"
 
-      - name: move page content to branch page
+      - name: clear branch contnet
         run: |
-          git remote -v
+          git rm -rf .
+
+      - name: fetch content
+        run: |
           git fetch origin main:tmp
-          git branch
-          git checkout tmp -- page
-          mv page/* .
+          git checkout tmp -- dist
+          mv dist/* .
+
+      - name: add -> commit -> push
+        run: |
           git add .
           git commit -m "deploy"
           git push
+
+      - name: debug
+        run: |
+          git remove -v
+          git branch
