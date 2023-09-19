@@ -42,5 +42,5 @@ jobs:
 
       - name: debug
         run: |
-          git remove -v
+          git remote -v
           git branch
