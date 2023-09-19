@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          ref: 'refs/heads/page'
+
 
       - name: Set Git User Info
         run: |
@@ -20,7 +23,6 @@ jobs:
 
       - name: test
         run: |
-          git switch page
           git rm -rf .
           git checkout main -- page
           mv page/* .
