@@ -10,6 +10,10 @@ jobs:
   move-page-content-to-page-branch:
     runs-on: ubuntu-latest
     steps:
+      - name: Set Git User Info
+        run: |
+          git config user.email "linhieng@qq.com"
+          git config user.name "linhieng"
 
       - name: Checkout Repository
         uses: actions/checkout@v2
