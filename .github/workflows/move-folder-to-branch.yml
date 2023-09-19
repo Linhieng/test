@@ -43,10 +43,15 @@ jobs:
       #     else
       #       echo "No changes to push."
       #     fi
-      - name: Use Custom Action
-        uses: ./my-actions/push.yml
+      # - name: Use Custom Action
+      #   uses: ./my-actions/push.yml
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm run push
 
       - name: debug
         run: |
           git remote -v
           git branch
+
