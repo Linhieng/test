@@ -1,6 +1,9 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 
+permissions:
+  contents: write
+
 on:
   push:
     branches: main
@@ -10,12 +13,6 @@ jobs:
   move-page-content-to-page-branch:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-        with:
-          ref: 'refs/heads/main'
-
 
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -35,5 +32,5 @@ jobs:
           rmdir page
           git add .
           git commit -m "deploy"
-          git push origin page
+          git push
 
