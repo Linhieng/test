@@ -8,11 +8,11 @@ export default defineConfig({
     plugins: [commonjs(), resolve()],
     output: [
         {
-            file: 'dist.js',
+            file: '.github/script/push.js',
             format: 'cjs',
         },
         {
-            file: 'dist.min.js',
+            file: '.github/script/push.min.js',
             format: 'cjs',
             plugins: [terser()],
         },

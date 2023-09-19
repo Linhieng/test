@@ -2690,21 +2690,19 @@ try {
     execSync('git checkout main -- dist');
     execSync('mv dist/* .');
 
-    // const gitStatus = execSync('git status -s').toString().trim()
+    const gitStatus = execSync('git status -s').toString().trim();
 
-    // if (gitStatus) {
-    execSync('git add .');
-    execSync('git commit -m "deploy"');
-    execSync('git push origin page');
-    // } else {
-    //     console.warn('No changes to commit.')
-    // }
+    if (gitStatus) {
+        execSync('git add .');
+        execSync('git commit -m "deploy"');
+        execSync('git push origin page');
+        core.info("-Hi, how are you doing~. I'm fine");
+    } else {
+        core.warn('No changes to commit.');
+    }
 } catch (error) {
-    core.setFailed(
-        'Hi, can you see me? if you can, yes, the process has a error ' +
-            error.message +
-            " I'm the end",
-    );
+    core.error(error);
+    core.setFailed(`${error.message}`);
 }
 
 module.exports = push;

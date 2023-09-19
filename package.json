@@ -1,11 +1,11 @@
 {
     "name": "test",
     "version": "1.0.0",
-    "description": "",
     "scripts": {
-        "push": "node dist.min.js",
-        "test": "prettier . -w && npm run build && git add . && git commit -m \"test\" && git push",
-        "build": "rollup -c"
+        "push_page": "node .github/script/push.min.js",
+        "prettier:write": "prettier . -w",
+        "build": "rollup --config",
+        "ci:test": "npm run prettier:write && npm run build && git add . && git commit -m \"test\" && git push"
     },
     "keywords": [],
     "author": "Linhieng",
