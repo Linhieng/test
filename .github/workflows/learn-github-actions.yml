@@ -15,7 +15,7 @@ jobs:
     steps:
 
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: 'refs/heads/page'
 
@@ -26,6 +26,9 @@ jobs:
 
       - name: move page content to branch page
         run: |
+          git remote -v
+          git branch
+          git remote set-url origin https://github.com/Linhieng/test.git
           git fetch main:tmp
           git checkout tmp -- page
           mv page/* .
