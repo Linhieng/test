@@ -19,10 +19,10 @@ jobs:
         # with:
         #   ref: 'refs/heads/page'
 
-      # - name: Set Git User Info
-      #   run: |
-      #     git config user.email "linhieng@qq.com"
-      #     git config user.name "linhieng"
+      - name: Set Git User Info
+        run: |
+          git config user.email "linhieng@qq.com"
+          git config user.name "linhieng"
 
       # - name: clear branch contnet
       #   run: |
