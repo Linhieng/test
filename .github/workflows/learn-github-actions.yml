@@ -24,7 +24,7 @@ jobs:
           git rm -rf .
           git commit --allow-empty  -m "empty"
 
-      # - name: push
-      #   run: |
-      #     git push origin page -u ${{ secrets.GITHUB_TOKEN }}
+      - name: push
+        run: |
+          git push origin page -u ${{ secrets.GITHUB_TOKEN }}
 
