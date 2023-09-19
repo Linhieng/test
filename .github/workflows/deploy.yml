@@ -26,4 +26,3 @@ jobs:
 
             git add .
             git commit -m "deloy page branch"
-            git push origin page
