@@ -23,9 +23,6 @@ jobs:
 
       - name: test
         run: |
-          set +e
-          git rm -rf .
-          set -e
 
           git checkout main -- page
           mv page/* .
