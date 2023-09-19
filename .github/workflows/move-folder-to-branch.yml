@@ -16,23 +16,23 @@ jobs:
 
       - name: Checkout Repository
         uses: actions/checkout@v3
-        with:
-          ref: 'refs/heads/page'
+        # with:
+        #   ref: 'refs/heads/page'
 
-      - name: Set Git User Info
-        run: |
-          git config user.email "linhieng@qq.com"
-          git config user.name "linhieng"
+      # - name: Set Git User Info
+      #   run: |
+      #     git config user.email "linhieng@qq.com"
+      #     git config user.name "linhieng"
 
-      - name: clear branch contnet
-        run: |
-          git rm -rf .
+      # - name: clear branch contnet
+      #   run: |
+      #     git rm -rf .
 
-      - name: fetch content
-        run: |
-          git fetch origin main:tmp
-          git checkout tmp -- dist
-          mv dist/* .
+      # - name: fetch content
+      #   run: |
+      #     git fetch origin main:tmp
+      #     git checkout tmp -- dist
+      #     mv dist/* .
 
       # - name: add -> commit -> push
       #   run: |

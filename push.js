@@ -8,8 +8,8 @@ try {
   if (gitStatus) {
     console.log('There are changes, pushing to remote...');
 
-    // Run 'git push origin main'
-    execSync('git push origin main');
+    throw new Error('test')
+    // execSync('git push origin main');
 
     console.log('Changes pushed successfully.');
   } else {
