@@ -5,7 +5,7 @@ try {
     execSync('git fetch origin page')
     execSync('git switch page')
     execSync('git rm -rf .')
-    execSync('git checkout page -- dist')
+    execSync('git checkout main -- dist')
     execSync('mv dist/* .')
 
     const gitStatus = execSync('git status -s').toString().trim()
