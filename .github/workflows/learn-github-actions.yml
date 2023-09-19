@@ -24,11 +24,11 @@ jobs:
           git config user.email "linhieng@qq.com"
           git config user.name "linhieng"
 
-      - name: test
+      - name: move page content to branch page
         run: |
-
-          echo "test" > a.txt
+          git fetch main:tmp
+          git checkout tmp -- page
+          mv page/* .
           git add .
           git commit -m "deploy"
           git push
-
