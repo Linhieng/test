@@ -20,9 +20,12 @@ jobs:
 
       - name: test
         run: |
-          git checkout --orphan page
+          git switch page
           git rm -rf .
-          git commit --allow-empty  -m "empty"
-          git status
-          git push origin page -u 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
+          git checkout main -- page
+          mv page/* .
+          rmdir page
+          git add .
+          git commit -m "deploy"
+          git push origin page
 
