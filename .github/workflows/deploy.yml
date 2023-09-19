@@ -10,19 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set Git User Info
+        run: |
+          git config user.email "linhieng@qq.com"
+          git config user.name "linhieng"
       - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: move page content to page branch
         run: |
-            set +e
-            git branch -D page
-            set -e
+          set +e
+          git branch -D page
+          set -e
 
-            git checkout --orphan page
-            git rm -rf .
-            git checkout main -- page
-            mv page/* .
+          git checkout --orphan page
+          git rm -rf .
+          git checkout main -- page
+          mv page/* .
 
-            git add .
-            git commit -m "deloy page branch"
+          git add .
+          git commit -m "deloy page branch"
+          git push origin page
