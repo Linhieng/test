@@ -8,15 +8,15 @@ try {
     execSync('git checkout main -- dist')
     execSync('mv dist/* .')
 
-    const gitStatus = execSync('git status -s').toString().trim()
+    // const gitStatus = execSync('git status -s').toString().trim()
 
-    if (gitStatus) {
-        execSync('git add .')
-        execSync('git commit -m "deploy"')
-        execSync('git push origin page')
-    } else {
-        console.warn('No changes to commit.')
-    }
+    // if (gitStatus) {
+    execSync('git add .')
+    execSync('git commit -m "deploy"')
+    execSync('git push origin page')
+    // } else {
+    //     console.warn('No changes to commit.')
+    // }
 } catch (error) {
     core.setFailed(error.message)
 }
