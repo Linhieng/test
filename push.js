@@ -5,10 +5,10 @@ try {
   // Run 'git status -s'
   const gitStatus = execSync('git status -s').toString().trim();
 
+  throw new Error('test')
   if (gitStatus) {
     console.log('There are changes, pushing to remote...');
 
-    throw new Error('test')
     // execSync('git push origin main');
 
     console.log('Changes pushed successfully.');
