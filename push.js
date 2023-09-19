@@ -19,8 +19,8 @@ try {
     // }
 } catch (error) {
     core.setFailed(
-        'Hi, can you see me? if you can, yes, the process has a error',
-        error.message,
-        "I'm the end",
+        'Hi, can you see me? if you can, yes, the process has a error ' +
+            error.message +
+            " I'm the end",
     )
 }
