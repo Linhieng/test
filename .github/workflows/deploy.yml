@@ -29,6 +29,13 @@ jobs:
           git checkout main -- page
           mv page/* .
 
+      - name: Add Changes
+        run: |
           git add .
           git commit -m "deloy page branch"
-          git push origin page
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          branch: page
+          github_token: ${{ secrets.GITHUB_TOKEN }}
