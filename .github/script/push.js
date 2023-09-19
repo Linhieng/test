@@ -2691,7 +2691,7 @@ try {
     execSync('mv dist/* .');
 
     const gitStatus = execSync('git status -s').toString().trim();
-
+    core.info(gitStatus, !!gitStatus);
     if (gitStatus) {
         execSync('git add .');
         execSync('git commit -m "deploy"');
