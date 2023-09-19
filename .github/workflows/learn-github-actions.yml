@@ -23,9 +23,14 @@ jobs:
 
       - name: test
         run: |
+          set +e
           git rm -rf .
-          echo "test" > a.txt
-          git add a.txt
+          set -e
+
+          git checkout main -- page
+          mv page/* .
+          rmdir page
+          git add .
           git commit -m "deploy"
           git push origin page
 
