@@ -2689,11 +2689,11 @@ try {
     execSync('git rm -rf .');
     execSync('git checkout main -- dist');
     execSync('mv dist/* .');
+    execSync('git add .');
 
     const gitStatus = execSync('git status -s').toString().trim();
     core.info(gitStatus, !!gitStatus);
     if (gitStatus) {
-        execSync('git add .');
         execSync('git commit -m "deploy"');
         execSync('git push origin page');
         core.info("-Hi, how are you doing~. I'm fine");
