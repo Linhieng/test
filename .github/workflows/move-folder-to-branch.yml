@@ -36,9 +36,13 @@ jobs:
 
       - name: add -> commit -> push
         run: |
-          git add .
-          git commit -m "deploy"
-          git push --force
+          if [[ $(git status -s) ]]; then
+            git add .
+            git commit -m "deploy"
+            git push origin main
+          else
+            echo "No changes to push."
+          fi
 
       - name: debug
         run: |
