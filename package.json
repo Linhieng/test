@@ -1,6 +1,7 @@
 {
-    "name": "test",
+    "name": "test-actions",
     "version": "1.0.0",
+    "description": "This repository is be using practice actions of Github workflows for my self. 该仓库是用来练习 Github 工作流的",
     "scripts": {
         "push_page": "node .github/script/push.min.js",
         "prettier:write": "prettier . -w",
