@@ -1,20 +1,38 @@
-# Github 工作流
+# create-svelte
 
-该仓库是用来练习 Github 工作流的，其中的 commit 历史记录没有任意意义，有价值的东西最终会抽离到笔记中。
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-[Github Actions 官方文档](https://docs.github.com/en/actions/quickstart)
+## Creating a project
 
-碎碎记：
+If you're seeing this, you've probably already done this step. Congrats!
 
--   `.github\workflows` 中的 yml 文件会被自动认为是 actions
--   actions 中想要对仓库进行一些操作，比如 commit、push 时，记得[配置 `permissions` 权限](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions)。
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-TODO:
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
--   [ ] `@actions/github` 案例
--   [ ] 制作自己的 actions，可参考 [尤雨溪的 release-tag](https://github1s.com/yyx990803/release-tag/blob/HEAD/action.yml)
--   [ ] 学习 Github 官方 [actions](https://github.com/actions)
+## Developing
 
-已实现：
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
--   [x] 需求：主分支有新的 push 时，自动将 dist 中的文件更新到 page 分支上，page 分支将用于显示 Github page 页面。
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

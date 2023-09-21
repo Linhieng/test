@@ -1,24 +1,26 @@
 {
     "name": "test-actions",
-    "version": "1.0.0",
-    "description": "This repository is be using practice actions of Github workflows for my self. 该仓库是用来练习 Github 工作流的",
+    "version": "0.0.1",
+    "private": true,
     "scripts": {
-        "push_page": "node .github/script/push.min.js",
-        "prettier:write": "prettier . -w",
-        "build": "rollup --config",
-        "ci:test": "npm run prettier:write && npm run build && git add . && git commit -m \"test\" && git push"
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+        "lint": "prettier --plugin-search-dir . --check .",
+        "format": "prettier --plugin-search-dir . --write ."
     },
-    "keywords": [],
-    "author": "Linhieng",
-    "license": "ISC",
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^25.0.4",
-        "@rollup/plugin-node-resolve": "^15.2.1",
-        "@rollup/plugin-terser": "^0.4.3",
-        "prettier": "^3.0.3",
-        "rollup": "^3.29.2"
+        "@sveltejs/adapter-auto": "^2.0.0",
+        "@sveltejs/adapter-static": "^2.0.3",
+        "@sveltejs/kit": "^1.20.4",
+        "prettier": "^2.8.0",
+        "prettier-plugin-svelte": "^2.10.1",
+        "svelte": "^4.0.5",
+        "svelte-check": "^3.4.3",
+        "typescript": "^5.0.0",
+        "vite": "^4.4.2"
     },
-    "dependencies": {
-        "@actions/core": "^1.10.1"
-    }
+    "type": "module"
 }
