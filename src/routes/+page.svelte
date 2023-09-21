@@ -10,6 +10,7 @@
 </svelte:head>
 
 <h1>Welcome to My Blog</h1>
-
-<input type="text" bind:value />
-<p>{value}</p>
+<div>
+    <input type="text" bind:value />
+    <p>{value}</p>
+</div>
