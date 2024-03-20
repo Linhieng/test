@@ -20,7 +20,7 @@ jobs:
         steps:
             # 获取仓库内容
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v2
             # 安装 nodejs
             - name: Install Node.js
               uses: actions/setup-node@v3
