@@ -13,6 +13,7 @@ permissions:
 # 中新建一个环境变量，名为 PUSH_KEY
 env:
     github_token: ${{ secrets.PUSH_KEY }}
+
 jobs:
     bundle:
         runs-on: ubuntu-latest
