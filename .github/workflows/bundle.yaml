@@ -23,6 +23,7 @@ jobs:
           git config user.email github-action@github.com
           git rm *
           mv dist/* .
+          ls -al
           git add .
           git commit -m "github action auto push"
           git checkout -b dist
