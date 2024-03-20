@@ -22,15 +22,14 @@ jobs:
           git config user.name github-action
           git config user.email github-action@github.com
       - run: ls -al
-      - run: git rm *
+      - run: git rm --ignore-unmatch -- *
       - run: ls -al
       - run: mv dist/* .
       - run: ls -al
-      - run: |
-          git add .
-          git commit -m "github action auto push"
-          git branch
-          git checkout -b dist
-          git push -f origin dist
+      - run: git add .
+      - run: git commit -m "github action auto push"
+      - run: git branch
+      - run: git checkout -b dist
+      - run: git push -f origin dist
         env: # PUSH 权限要求
           github_token: ${{ secrets.PUSH_KEY }}
