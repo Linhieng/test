@@ -35,3 +35,27 @@ Error: Process completed with exit code 128.
 
 - Settings -> Actions -> General -> Workflow permissions -> 勾选为 Read and write permissions
 - actions/checkout 版本升级为 @3
+
+然后就是只提取 dist 文件夹的方式了：
+
+```sh
+node bundle.js
+# 首先生成 dist 文件
+
+git config user.name github-action
+git config user.email github-action@github.com
+# 要 push 时，需要提供一个用户，这里随便写成一个就可以了
+
+git rm -r --ignore-unmatch -- *
+# 先将所有被追踪的文件删除，这里的 * 并不会匹配 . 开头的文件
+git rm -r .github/*
+# 然后继续删除 .github 文件夹
+mv dist/* .
+# 此时目录中只剩下 dist 文件夹，将内容全部提出来
+
+# 然后就是正常的流程了：
+git add .
+git commit -m "github action auto push"
+git switch -c dist
+git push -f origin dist
+```
