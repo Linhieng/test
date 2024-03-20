@@ -25,6 +25,7 @@ jobs:
           mv dist/* .
           git add .
           git commit -m "github action auto push"
+          git checkout -b dist
           git push -f origin dist
         env: # PUSH 权限要求
           github_token: ${{ secrets.PUSH_KEY }}
