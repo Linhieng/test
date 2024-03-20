@@ -5,6 +5,10 @@ on:
         branches:
             - dev
 
+# 为整个 jobs 提供 write contents 的权限
+permissions:
+    contents: write
+
 jobs:
     bundle:
         runs-on: ubuntu-latest
