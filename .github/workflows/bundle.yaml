@@ -20,8 +20,8 @@ jobs:
       - run: |
           git config user.name github-action
           git config user.email github-action@github.com
-      - run: git rm --ignore-unmatch -- *
-      - run: git rm .github/*
+      - run: git rm -r --ignore-unmatch -- *
+      - run: git rm -r .github/*
       - run: mv dist/* .
       - run: git add .
       - run: git commit -m "github action auto push"
